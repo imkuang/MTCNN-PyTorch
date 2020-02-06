@@ -26,7 +26,7 @@ drawed_image.save("drawed_image.jpg")
 # 裁剪人脸图片
 face_img_list = crop_img(image, bboxes, size=(64, 64))
 for i in range(len(face_img_list)):
-    face_img_list[i].save(str(i+1)+".jpg")
+    face_img_list[i].save("face_"+str(i+1)+".jpg")
 ```
 
 其中`bboxes`是一个n\*5的列表、`landmarks`是一个n\*10的列表，n表示检测出来的人脸的个数，详细情况如下：
@@ -42,7 +42,7 @@ for i in range(len(face_img_list)):
 
 ## 感谢
 
-本项目实现离不开以下项目的启发：
+本项目的实现离不开以下项目的启发：
 
 - [kpzhang93/MTCNN_face_detection_alignment](https://github.com/kpzhang93/MTCNN_face_detection_alignment)
 - [TropComplique/mtcnn-pytorch](https://github.com/TropComplique/mtcnn-pytorch)
