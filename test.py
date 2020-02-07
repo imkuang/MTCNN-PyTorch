@@ -13,6 +13,6 @@ if __name__ == "__main__":
     # crop face images
     example_img = Image.open("./images/example3.jpg")
     bboxes, _ = detect_faces(example_img)
-    face_img_list = crop_img(example_img, bboxes, size=(64, 64))
+    face_img_list = crop_img(example_img, bboxes, resize=True, crop_size=(64, 64))
     for i in range(len(face_img_list)):
-        face_img_list[i].save("./images/example3_croped/" + str(i + 1) + ".jpg")
+        face_img_list[i].save("./images/example3_croped/face_" + str(i + 1) + ".jpg")
