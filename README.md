@@ -36,7 +36,7 @@ for i in range(len(face_img_list)):
     face_img_list[i].save("./images/face_" + str(i + 1) + ".jpg")
 ```
 
-将上述代码保存为 `demo.py`，运行后可以在[imges文件夹](https://github.com/xirikm/mtcnn-pytorch/tree/master/demo)下查看保存的图片。
+将上述代码保存为 `demo.py`，运行后可以在[imges文件夹](https://github.com/xirikm/mtcnn-pytorch/tree/master/images)下查看保存的图片。
 
 ## 依赖
 
@@ -44,7 +44,7 @@ for i in range(len(face_img_list)):
 - Pillow
 - NumPy
 
-## 感谢
+## 鸣谢
 
 本项目实现离不开以下项目的启发，特此感谢：
 
