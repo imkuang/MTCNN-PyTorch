@@ -5,7 +5,7 @@ MTCNN 推理阶段的 PyTorch 实现。主要代码参考自 [mtcnn-pytorch](htt
 
 ## 示例效果
 
-![](https://raw.githubusercontent.com/xirikm/mtcnn-pytorch/master/images/example3_result.jpg)
+![](https://raw.githubusercontent.com/xirikm/mtcnn-pytorch/master/images/example1_result.jpg)
 
 更多示例效果可以查看[images文件夹](https://github.com/xirikm/mtcnn-pytorch/tree/master/images)。
 
