@@ -41,7 +41,7 @@ class FaceDetector:
             nms_thresholds: a list of length 3.
 
         Returns:
-            two float numpy arrays of shapes [n_boxes, 4] and [n_boxes, 10],
+            two float numpy arrays of shapes [n_boxes, 5] and [n_boxes, 10],
             bounding boxes and facial landmarks.
         """
 
@@ -155,6 +155,7 @@ class FaceDetector:
         Returns:
             an instance of PIL.Image.
         """
+
         bounding_boxes, facial_landmarks = self.detect(image)
 
         img_copy = image.copy()
@@ -172,7 +173,7 @@ class FaceDetector:
 
         return img_copy
 
-    def crop_image(self, image, resize=False, crop_size=(64, 64)):
+    def crop_image(self, image, resize=False, crop_size=(112, 112)):
         """Crop all face pictures.
 
         Arguments:
@@ -182,6 +183,7 @@ class FaceDetector:
         Returns:
             a list of PIL.Image instances
         """
+
         bounding_boxes, _ = self.detect(image)
         img_list = []
 
