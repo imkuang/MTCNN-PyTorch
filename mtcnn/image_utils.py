@@ -1,4 +1,5 @@
 from PIL import ImageDraw, Image
+from .box_utils import convert_to_square
 
 
 def draw_bboxes(img, bounding_boxes, facial_landmarks=[]):
@@ -39,22 +40,10 @@ def crop_img(img, bounding_boxes, resize=False, crop_size=(64, 64)):
         a list of PIL.Image instances
     """
     img_list = []
-    for b in bounding_boxes:
-        old_size = (b[2] - b[0] + b[3] - b[1]) / 2
-        # Properly enlarge the crop area of the images.
-        size = old_size * 1.2
-        center_x = b[2] - (b[2] - b[0]) / 2.0
-        center_y = b[3] - (b[3] - b[1]) / 2.0
-        face_img = img.crop(
-            (
-                (
-                    center_x - size / 2,
-                    center_y - size / 2,
-                    center_x + size / 2,
-                    center_y + size / 2,
-                )
-            )
-        )
+    # convert bboxes to square
+    square_bboxes = convert_to_square(bounding_boxes)
+    for b in square_bboxes:
+        face_img = img.crop((b[0], b[1], b[2], b[3]))
         if resize:
             face_img = face_img.resize(crop_size, Image.BILINEAR)
         img_list.append(face_img)
