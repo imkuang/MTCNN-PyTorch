@@ -18,6 +18,6 @@ drawed_image = detector.draw_bboxes(image)
 drawed_image.save("./images/drawed_image.jpg")
 
 # 裁剪人脸图片并保存
-face_img_list = detector.crop_image(image, resize=True, crop_size=(64, 64))
+face_img_list = detector.crop_faces(image, resize=True, crop_size=(64, 64))
 for i in range(len(face_img_list)):
     face_img_list[i].save("./images/face_" + str(i + 1) + ".jpg")

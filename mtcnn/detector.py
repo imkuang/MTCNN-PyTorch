@@ -173,7 +173,7 @@ class FaceDetector:
 
         return img_copy
 
-    def crop_image(self, image, resize=False, crop_size=(112, 112)):
+    def crop_faces(self, image, resize=False, crop_size=(112, 112)):
         """Crop all face pictures.
 
         Arguments:
