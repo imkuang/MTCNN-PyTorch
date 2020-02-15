@@ -152,6 +152,7 @@ class FaceDetector:
 
         Arguments:
             image: an instance of PIL.Image.
+
         Returns:
             an instance of PIL.Image.
         """
@@ -173,13 +174,13 @@ class FaceDetector:
 
         return img_copy
 
-    def crop_faces(self, image, resize=False, crop_size=(112, 112)):
-        """Crop all face pictures.
+    def crop_faces(self, image, size=112):
+        """Crop all face images.
 
         Arguments:
             image: an instance of PIL.Image.
-            resize: whether to resize the images.
-            crop_size: the size of output images, this parameter is required if you set resized = True
+            size: the side length of output images.
+
         Returns:
             a list of PIL.Image instances
         """
@@ -192,8 +193,7 @@ class FaceDetector:
 
         for b in square_bboxes:
             face_img = image.crop((b[0], b[1], b[2], b[3]))
-            if resize:
-                face_img = face_img.resize(crop_size, Image.BILINEAR)
+            face_img = face_img.resize((size, size), Image.BILINEAR)
             img_list.append(face_img)
         return img_list
 
